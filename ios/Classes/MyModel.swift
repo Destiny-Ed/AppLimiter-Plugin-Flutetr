@@ -37,9 +37,5 @@ class MyModel: ObservableObject {
             ? nil
             : ShieldSettings.ActivityCategoryPolicy.specific(applications.categoryTokens)
 
-        store.shield.applicationConfiguration = ShieldSettings.ApplicationConfiguration(
-            shieldAction: .primaryButton,
-            shieldConfiguration: .extension(identifier: "com.sweat.lock.MyAppBlockScreen")
-        )
     }
 }
