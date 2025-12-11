@@ -26,7 +26,7 @@ struct ContentView: View {
                 Button("Choose Apps") {
                     // isPickerPresented = true
                 }
-                .familyActivityPicker(isPresented: $isPickerPresented,
+                .familyActivityPicker(isPresented: $isDiscouragedPresented,
                                       selection: $model.selectionToDiscourage)
 
                 Button("Lock") {
