@@ -15,10 +15,27 @@ struct ContentView: View {
     func contentView() -> some View {
         switch globalMethodCall {
         case "selectAppsToDiscourage":
-            FamilyActivityPicker(selection: $model.selectionToDiscourage)
-                .onChange(of: model.selectionToDiscourage) { _ in
-                    model.setShieldRestrictions()
+            // FamilyActivityPicker(selection: $model.selectionToDiscourage)
+            //     .onChange(of: model.selectionToDiscourage) { _ in
+            //         model.setShieldRestrictions()
+            //     }
+            Text("🔒 Locked")
+                    .font(.system(size: 60))
+                    .foregroundColor(.red)
+
+                Button("Choose Apps") {
+                    // isPickerPresented = true
                 }
+                .familyActivityPicker(isPresented: $isPickerPresented,
+                                      selection: $model.selectionToDiscourage)
+
+                Button("Lock") {
+                     model.setShieldRestrictions()
+                }
+                .padding()
+                .background(Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         case "selectAppsToEncourage":
             FamilyActivityPicker(selection: $model.selectionToEncourage)
                 .onChange(of: model.selectionToEncourage) { _ in
